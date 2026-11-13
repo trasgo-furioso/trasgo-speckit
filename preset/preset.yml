@@ -1,0 +1,60 @@
+schema_version: "1.0"
+
+preset:
+  id: "trasgospec"
+  name: "Trasgo Spec Kit"
+  version: "1.0.0"
+  description: "Journey-driven BDD/TDD spec templates with testable acceptance criteria"
+  author: "Trasgo Furioso"
+  license: "MIT"
+
+requires:
+  speckit_version: ">=0.15.0"
+
+provides:
+  templates:
+    - type: "template"
+      name: "spec-template"
+      file: "templates/spec-template.md"
+      description: "PRD template with problem statement, JTBD, and given/when/then user journeys"
+
+    - type: "template"
+      name: "plan-template"
+      file: "templates/plan-template.md"
+      description: "RPG plan template with capability tree, journey contracts, and architecture"
+
+    - type: "template"
+      name: "tasks-template"
+      file: "templates/tasks-template.md"
+      description: "BDD/TDD tasks template with journey-driven phases and test contracts"
+
+    - type: "command"
+      name: "speckit.specify"
+      file: "commands/speckit.specify.md"
+      description: "Create spec.md using problem-first PRD template with testable user journeys"
+      replaces: "speckit.specify"
+
+    - type: "command"
+      name: "speckit.plan"
+      file: "commands/speckit.plan.md"
+      description: "Create plan.md with capability tree, journey contracts, and architecture"
+      replaces: "speckit.plan"
+
+    - type: "command"
+      name: "speckit.tasks"
+      file: "commands/speckit.tasks.md"
+      description: "Create tasks.md with BDD/TDD phases driven by journey contracts"
+      replaces: "speckit.tasks"
+
+    - type: "command"
+      name: "speckit.implement"
+      file: "commands/speckit.implement.md"
+      description: "Execute BDD/TDD phases from tasks.md — failing test first, TDD until green, exit command gate"
+      replaces: "speckit.implement"
+
+tags:
+  - "bdd"
+  - "tdd"
+  - "journey"
+  - "testing"
+  - "workflow"

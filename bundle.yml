@@ -1,0 +1,26 @@
+schema_version: "1.0"
+
+bundle:
+  id: "trasgospec"
+  name: "Trasgo Spec Kit"
+  version: "1.0.0"
+  role: "developer"
+  description: "Journey-driven BDD/TDD spec-driven development preset with problem-first PRD, RPG planning, and test-contract tasks."
+  author: "Trasgo Furioso"
+  license: "MIT"
+
+requires:
+  speckit_version: ">=0.15.0"
+
+provides:
+  presets:
+    - id: "trasgospec"
+      version: "1.0.0"
+      priority: 1
+      strategy: "replace"
+
+tags:
+  - "bdd"
+  - "tdd"
+  - "journey"
+  - "workflow"
