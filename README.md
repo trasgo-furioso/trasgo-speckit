@@ -39,8 +39,8 @@ Every step ends with a **human gate**. The agent produces the artifact, then the
 Requires [Spec Kit](https://github.com/github/spec-kit) >= 0.15.0.
 
 ```bash
-git clone https://github.com/trasgo-furioso/trasgo-speckit.git
-specify preset add --dev ./trasgo-speckit/preset/ --priority 1
+git clone https://github.com/trasgo-furioso/trasgo-speckit.git .trasgo-speckit
+specify preset add --dev .trasgo-speckit/preset/ --priority 1
 ```
 
 Verify:
