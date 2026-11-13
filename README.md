@@ -40,13 +40,13 @@ Requires [Spec Kit](https://github.com/github/spec-kit) >= 0.15.0.
 
 ```bash
 git clone https://github.com/trasgo-furioso/trasgo-speckit.git
-specify bundle install ./trasgo-speckit/
+specify preset add --dev ./trasgo-speckit/preset/ --priority 1
 ```
 
 Verify:
 
 ```bash
-specify preset list  # shows trasgospec preset
+specify preset list  # shows trasgospec v1.0.0 at priority 1
 ```
 
 ## Commands
