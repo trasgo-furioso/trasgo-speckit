@@ -1,6 +1,24 @@
+
 # Trasgo Spec Kit
 
+![Speckit Banner](assets/banner.webp)
+
 A [Spec Kit](https://github.com/github/spec-kit) preset that replaces the default workflow with a journey-driven, BDD/TDD pipeline. Every feature starts as a user problem, gets decomposed into testable journeys, and is implemented through red-green cycles gated by those journeys. A convergence loop ensures the deliverable matches the spec before the feature is considered done.
+
+## Install
+
+Requires [Spec Kit](https://github.com/github/spec-kit) >= 0.15.0.
+
+```bash
+git clone https://github.com/trasgo-furioso/trasgo-speckit.git .trasgo-speckit
+specify preset add --dev .trasgo-speckit/preset/ --priority 1
+```
+
+Verify:
+
+```bash
+specify preset list  # shows trasgospec v1.0.0 at priority 1
+```
 
 ## The loop
 
@@ -33,21 +51,6 @@ Every step ends with a **human gate**. The agent produces the artifact, then the
 **Implement** executes phases sequentially. For each phase: write the failing BDD test (red), work through TDD tasks one by one (red-green-commit), then run the BDD test again. If the integration test passes, the phase is done. If not, debug the gap between passing unit tests and the failing integration test.
 
 **Converge** assesses the current codebase against `spec.md`, `plan.md`, and `tasks.md`. It identifies unbuilt journeys, incomplete phases, and integration gaps. Any remaining work gets appended as new tasks to `tasks.md`, and the loop continues with another `implement` pass. When converge finds nothing left -- all journeys satisfied, all exit commands passing -- the feature is done.
-
-## Install
-
-Requires [Spec Kit](https://github.com/github/spec-kit) >= 0.15.0.
-
-```bash
-git clone https://github.com/trasgo-furioso/trasgo-speckit.git .trasgo-speckit
-specify preset add --dev .trasgo-speckit/preset/ --priority 1
-```
-
-Verify:
-
-```bash
-specify preset list  # shows trasgospec v1.0.0 at priority 1
-```
 
 ## Commands
 
