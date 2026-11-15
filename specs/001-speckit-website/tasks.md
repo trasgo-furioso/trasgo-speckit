@@ -190,6 +190,21 @@ Exit command: `cd site && python3 -m http.server 8080 &` then verify with Playwr
 
 ---
 
+## Phase 8: Convergence
+
+- [X] T034 Set `og:url` and `twitter:url` meta tag content to the deployed site URL (or GitHub repo URL as placeholder) per J8 journey contract (partial)
+- [X] T035 Increase minimum height of `.button` and `.form-input` to 44px in `site/css/index.css` to meet the 44px touch target requirement per J9 journey contract (partial)
+- [X] T036 Update footer LinkedIn link href from `https://www.linkedin.com` to actual profile URL per plan: services footer (partial)
+- [X] T037 Generate social-image.png with title text overlay composited on banner artwork per plan: OG image specification (partial)
+
+**Exit**: Use Playwright MCP to verify:
+1. `og:url` meta tag is non-empty
+2. At 375px viewport: `.button.primary` height >= 44px, `.form-input` height >= 44px
+3. Footer LinkedIn link href contains a specific profile path (not generic linkedin.com)
+4. `social-image.png` exists and has non-zero file size
+
+---
+
 ## BDD/TDD Cycle
 
 This project uses a simplified BDD cycle without unit tests:

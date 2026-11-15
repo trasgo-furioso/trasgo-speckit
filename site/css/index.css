@@ -72,7 +72,7 @@
   --space-default: 12px;
   --space-button-s-vertical: 8px;
   --space-button-s-horizontal: 16px;
-  --space-button-m-vertical: 12px;
+  --space-button-m-vertical: 14px;
   --space-button-m-horizontal: 24px;
   --space-section: 60px;
   --space-card-m: 24px;
@@ -797,6 +797,11 @@ section {
   color: var(--color-text-secondary);
 }
 
+/* Touch target minimum */
+.button {
+  min-height: 44px;
+}
+
 /* Contact form */
 .contact-form {
   display: flex;
@@ -810,7 +815,9 @@ section {
   font-family: var(--font-text);
   font-size: var(--font-size-m);
   line-height: var(--line-height-paragraph-m);
-  padding: var(--space-button-m-vertical) var(--space-button-m-horizontal);
+  padding: 10px var(--space-button-m-horizontal);
+  min-height: 44px;
+  box-sizing: border-box;
   border: 1px solid var(--color-border-level-3);
   border-radius: var(--radius-s);
   background: var(--color-background);
