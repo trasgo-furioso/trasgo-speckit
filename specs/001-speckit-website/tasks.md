@@ -31,14 +31,14 @@
 **Entry Criteria**: `devtool-template-main/` exists in repo root, `assets/brand.json` and trasgo images exist in `assets/`
 
 **Tasks**:
-- [ ] Copy `devtool-template-main/` to `site/`
-- [ ] Delete unused template files: `pricing.html`, `licenses.html`, `css/pricing.css`, `js/pricing.js`
-- [ ] Delete unused sections from `site/index.html`: social proof / clients-container (L92-106), 2-column feature grid (L137-168), wide image block (L260-276), FAQ accordion (L315-498), promo CTA (L500-508)
-- [ ] Override CSS theme in `site/css/index.css`: set `.theme-light` color variables to brand palette — background `#F5F3EE` (paper), accent `#2D5016` (forest green), text primary `#1A1A1A` (ink), add gold accent `#D4AF37` for hover states
-- [ ] Copy `assets/adapt-the-goblin-face-from-the-reference-image-int.svg` to `site/images/favicon/icon.svg` and generate PNG derivatives (32x32 favicon.png, 180x180 apple-touch-icon.png) — update favicon links in `<head>`
-- [ ] Extract logo SVG from `assets/brand.json` → `site/images/logo.svg`, replace template logo in nav-container
-- [ ] Update OG meta tags in `<head>`: og:title → "Trasgo Speckit — Spec-Driven Development for AI-Assisted Coding", og:description → "A structured, spec-driven workflow for AI-assisted coding. Stop prompting and praying — specify, plan, and build with a convergence loop that delivers quality software in days, not weeks.", twitter:card → summary_large_image
-- [ ] Create `site/netlify.toml` with publish directory `site/` and basic caching headers
+- [X] Copy `devtool-template-main/` to `site/`
+- [X] Delete unused template files: `pricing.html`, `licenses.html`, `css/pricing.css`, `js/pricing.js`
+- [X] Delete unused sections from `site/index.html`: social proof / clients-container (L92-106), 2-column feature grid (L137-168), wide image block (L260-276), FAQ accordion (L315-498), promo CTA (L500-508)
+- [X] Override CSS theme in `site/css/index.css`: set `.theme-light` color variables to brand palette — background `#F5F3EE` (paper), accent `#2D5016` (forest green), text primary `#1A1A1A` (ink), add gold accent `#D4AF37` for hover states
+- [X] Copy `assets/adapt-the-goblin-face-from-the-reference-image-int.svg` to `site/images/favicon/icon.svg` and generate PNG derivatives (32x32 favicon.png, 180x180 apple-touch-icon.png) — update favicon links in `<head>`
+- [X] Extract logo SVG from `assets/brand.json` → `site/images/logo.svg`, replace template logo in nav-container
+- [X] Update OG meta tags in `<head>`: og:title → "Trasgo Speckit — Spec-Driven Development for AI-Assisted Coding", og:description → "A structured, spec-driven workflow for AI-assisted coding. Stop prompting and praying — specify, plan, and build with a convergence loop that delivers quality software in days, not weeks.", twitter:card → summary_large_image
+- [X] Create `site/netlify.toml` with publish directory `site/` and basic caching headers
 
 **Exit**: Use Playwright MCP to navigate to the site served locally. Verify:
 1. Page loads without errors
@@ -58,11 +58,11 @@ Exit command: `cd site && python3 -m http.server 8080 &` then verify with Playwr
 **Entry Criteria**: Phase 1 complete
 
 **Tasks**:
-- [ ] Copy `assets/three-cartoony-goblins-in-a-medieval-fantasy-works.png` → `site/images/workshop-scene.png`
-- [ ] Modify hero section in `site/index.html`: remove eyebrow badge, set H1 to "Spec-Driven Development for AI-Assisted Coding", set paragraph to tagline "Stop prompting and praying. Start specifying, planning, and building — with a structured loop that converges on quality software in days, not weeks."
-- [ ] Replace hero CTA buttons: single "Get Started" button (class `button primary`) linking to `https://github.com/trasgo-furioso/trasgo-speckit` with `target="_blank"`
-- [ ] Replace hero `image-wide` img src with `images/workshop-scene.png`, set appropriate alt text
-- [ ] Update header nav: replace template nav links with anchor links — "Method" → `#method`, "Install" → `#install`, "Services" → `#services`. Replace Sign In/Up buttons with single "Get Started" button → GitHub repo. Update GitHub icon link to `https://github.com/trasgo-furioso/trasgo-speckit`
+- [X] Copy `assets/three-cartoony-goblins-in-a-medieval-fantasy-works.png` → `site/images/workshop-scene.png`
+- [X] Modify hero section in `site/index.html`: remove eyebrow badge, set H1 to "Spec-Driven Development for AI-Assisted Coding", set paragraph to tagline "Stop prompting and praying. Start specifying, planning, and building — with a structured loop that converges on quality software in days, not weeks."
+- [X] Replace hero CTA buttons: single "Get Started" button (class `button primary`) linking to `https://github.com/trasgo-furioso/trasgo-speckit` with `target="_blank"`
+- [X] Replace hero `image-wide` img src with `images/workshop-scene.png`, set appropriate alt text
+- [X] Update header nav: replace template nav links with anchor links — "Method" → `#method`, "Install" → `#install`, "Services" → `#services`. Replace Sign In/Up buttons with single "Get Started" button → GitHub repo. Update GitHub icon link to `https://github.com/trasgo-furioso/trasgo-speckit`
 
 **Exit**: Use Playwright MCP to verify:
 1. Hero section visible with H1 containing "Spec-Driven Development"
@@ -79,11 +79,11 @@ Exit command: `cd site && python3 -m http.server 8080 &` then verify with Playwr
 **Entry Criteria**: Phase 2 complete
 
 **Tasks**:
-- [ ] Copy `assets/swap-tasks-and-converge.svg` → `site/images/convergence-loop.svg`
-- [ ] Copy character images to `site/images/`: `show-this-green-goblin-architect-character-as-a-fu.png` → `trasgo-specifier.png`, `show-this-brown-skinned-goblin-designer-character-.png` → `trasgo-designer.png`, `show-this-red-goblin-constructor-character-as-a-fu.png` → `trasgo-builder.png`
-- [ ] Modify feature showcase section: add `id="method"` for anchor link. Set H2 to "How It Works". Set description to diagram caption: "Every feature starts as a user problem, gets decomposed into testable journeys, and is implemented through red-green cycles. A convergence loop ensures the deliverable matches the spec."
-- [ ] Replace full-width feature card image with convergence loop SVG (`images/convergence-loop.svg`)
-- [ ] Repurpose the 3-column `grid columns-3` with three `feature-card` components:
+- [X] Copy `assets/swap-tasks-and-converge.svg` → `site/images/convergence-loop.svg`
+- [X] Copy character images to `site/images/`: `show-this-green-goblin-architect-character-as-a-fu.png` → `trasgo-specifier.png`, `show-this-brown-skinned-goblin-designer-character-.png` → `trasgo-designer.png`, `show-this-red-goblin-constructor-character-as-a-fu.png` → `trasgo-builder.png`
+- [X] Modify feature showcase section: add `id="method"` for anchor link. Set H2 to "How It Works". Set description to diagram caption: "Every feature starts as a user problem, gets decomposed into testable journeys, and is implemented through red-green cycles. A convergence loop ensures the deliverable matches the spec."
+- [X] Replace full-width feature card image with convergence loop SVG (`images/convergence-loop.svg`)
+- [X] Repurpose the 3-column `grid columns-3` with three `feature-card` components:
   - Card 1: `trasgo-specifier.png` image + H3 "Specify & Plan" + paragraph "Define the problem, not the solution. Capture user journeys in Given/When/Then format, then design the architecture with journey contracts."
   - Card 2: `trasgo-designer.png` image + H3 "Tasks" + paragraph "Break the plan into BDD/TDD phases. Every task starts with a failing test. Every phase ends with a runnable exit command."
   - Card 3: `trasgo-builder.png` image + H3 "Implement & Converge" + paragraph "Build phase by phase through red-green cycles. Then converge: compare the codebase against the spec, find gaps, and loop until done."
@@ -104,8 +104,8 @@ Exit command: `cd site && python3 -m http.server 8080 &` then verify with Playwr
 **Entry Criteria**: Phase 3 complete
 
 **Tasks**:
-- [ ] Modify cards-with-icons section: set H2 to "Why Spec-Driven?", set subhead paragraph to "The opposite of vibe coding"
-- [ ] Update the three `card-with-icon horizontal` components:
+- [X] Modify cards-with-icons section: set H2 to "Why Spec-Driven?", set subhead paragraph to "The opposite of vibe coding"
+- [X] Update the three `card-with-icon horizontal` components:
   - Card 1: icon `fa-solid fa-compass-drafting`, title "Structured, not ad-hoc", description "AI agents follow specs and journey contracts, not open-ended prompts. Every output is testable."
   - Card 2: icon `fa-solid fa-bolt`, title "Days, not weeks", description "The convergence loop eliminates rework. You specify once, then implement and converge until the deliverable matches the spec."
   - Card 3: icon `fa-solid fa-user-shield`, title "Human gates, AI labor", description "You review every artifact before the next step. The AI does the heavy lifting; you stay in control of what ships."
@@ -125,13 +125,13 @@ Exit command: `cd site && python3 -m http.server 8080 &` then verify with Playwr
 **Entry Criteria**: Phase 4 complete
 
 **Tasks**:
-- [ ] Modify the `grid columns-1/2-1` code block section: add `id="install"` for anchor link. Set H2 to "Get Started". Set description to "Requires Spec Kit >= 0.15.0"
-- [ ] Replace code block content with bash install commands (use [Code to Markup tool](https://psd-coder.github.io/code-to-markup/) referenced in template FAQ for syntax highlighting):
+- [X] Modify the `grid columns-1/2-1` code block section: add `id="install"` for anchor link. Set H2 to "Get Started". Set description to "Requires Spec Kit >= 0.15.0"
+- [X] Replace code block content with bash install commands (use [Code to Markup tool](https://psd-coder.github.io/code-to-markup/) referenced in template FAQ for syntax highlighting):
   ```bash
   git clone https://github.com/trasgo-furioso/trasgo-speckit.git .trasgo-speckit
   specify preset add --dev .trasgo-speckit/preset/ --priority 1
   ```
-- [ ] Add a `button-group` below the description with "View on GitHub" button (class `button secondary`) linking to `https://github.com/trasgo-furioso/trasgo-speckit` with `target="_blank"`
+- [X] Add a `button-group` below the description with "View on GitHub" button (class `button secondary`) linking to `https://github.com/trasgo-furioso/trasgo-speckit` with `target="_blank"`
 
 **Exit**: Use Playwright MCP to verify:
 1. Section with id="install" exists
@@ -148,8 +148,8 @@ Exit command: `cd site && python3 -m http.server 8080 &` then verify with Playwr
 **Entry Criteria**: Phase 5 complete
 
 **Tasks**:
-- [ ] Add new `<section>` with `id="services"` before the footer. Use `heading centered` component with H2 "Hire Actual Trasgos" and paragraph "Need a product built, not just coded? 15+ years of product and engineering experience, powered by spec-driven development. We know what to build — not just how."
-- [ ] Add Netlify Forms contact form inside the services section:
+- [X] Add new `<section>` with `id="services"` before the footer. Use `heading centered` component with H2 "Hire Actual Trasgos" and paragraph "Need a product built, not just coded? 15+ years of product and engineering experience, powered by spec-driven development. We know what to build — not just how."
+- [X] Add Netlify Forms contact form inside the services section:
   - `<form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">`
   - Hidden honeypot field: `<input name="bot-field" type="hidden">`
   - Name field: `<input type="text" name="name" placeholder="Name" required maxlength="100">`
@@ -157,9 +157,9 @@ Exit command: `cd site && python3 -m http.server 8080 &` then verify with Playwr
   - Message field: `<textarea name="message" placeholder="Tell us about your project" required maxlength="2000"></textarea>`
   - Submit button: `<button type="submit" class="button primary">Send Message</button>`
   - Style form fields to match template design (use existing input/form styles or add minimal CSS)
-- [ ] Add confirmation message element (hidden by default): `<div class="form-confirmation" style="display:none"><p class="paragraph m">Message received — we'll be in touch.</p></div>`
-- [ ] Update `site/js/main.js`: add form submit handler that intercepts the form POST via fetch, shows the confirmation message on success, hides the form fields
-- [ ] Reduce the footer: remove template link groups (Pricing, Docs, Blog, Careers). Keep copyright ("Trasgo Speckit" instead of "LoremIpsumInc") and social links. Update GitHub link to `https://github.com/trasgo-furioso/trasgo-speckit`, LinkedIn link to actual profile. Remove X/Twitter link if not needed. Add "Built with LaunchKit" attribution.
+- [X] Add confirmation message element (hidden by default): `<div class="form-confirmation" style="display:none"><p class="paragraph m">Message received — we'll be in touch.</p></div>`
+- [X] Update `site/js/main.js`: add form submit handler that intercepts the form POST via fetch, shows the confirmation message on success, hides the form fields
+- [X] Reduce the footer: remove template link groups (Pricing, Docs, Blog, Careers). Keep copyright ("Trasgo Speckit" instead of "LoremIpsumInc") and social links. Update GitHub link to `https://github.com/trasgo-furioso/trasgo-speckit`, LinkedIn link to actual profile. Remove X/Twitter link if not needed. Add "Built with LaunchKit" attribution.
 
 **Exit**: Use Playwright MCP to verify:
 1. Section with id="services" exists
@@ -178,11 +178,11 @@ Exit command: `cd site && python3 -m http.server 8080 &` then verify with Playwr
 **Entry Criteria**: Phase 6 complete
 
 **Tasks**:
-- [ ] Generate `site/images/social-image.png` (1200x630): composite the banner artwork with "Trasgo Speckit — Spec-Driven Development for AI-Assisted Coding" title text overlay. Update og:image and twitter:image meta tags to point to this file with absolute URL.
-- [ ] Copy `assets/banner.webp` → `site/images/banner.webp` as fallback asset
-- [ ] Verify and fix mobile responsive issues: serve the site and use Playwright MCP with mobile viewport (375x812) to check all sections. Fix any layout breakage — the template's `tablet.css` and `mobile.css` handle most cases, but the convergence loop SVG and character images may need max-width constraints.
-- [ ] Ensure contact form fields stack vertically on mobile and submit button is full-width
-- [ ] Verify all touch targets are >= 44px on mobile (CTA buttons, form fields, nav links)
+- [X] Generate `site/images/social-image.png` (1200x630): composite the banner artwork with "Trasgo Speckit — Spec-Driven Development for AI-Assisted Coding" title text overlay. Update og:image and twitter:image meta tags to point to this file with absolute URL.
+- [X] Copy `assets/banner.webp` → `site/images/banner.webp` as fallback asset
+- [X] Verify and fix mobile responsive issues: serve the site and use Playwright MCP with mobile viewport (375x812) to check all sections. Fix any layout breakage — the template's `tablet.css` and `mobile.css` handle most cases, but the convergence loop SVG and character images may need max-width constraints.
+- [X] Ensure contact form fields stack vertically on mobile and submit button is full-width
+- [X] Verify all touch targets are >= 44px on mobile (CTA buttons, form fields, nav links)
 
 **Exit**: Use Playwright MCP to verify:
 1. At desktop viewport: og:title meta tag exists and is non-empty, og:description exists, og:image exists and points to social-image.png, twitter:card is "summary_large_image"
