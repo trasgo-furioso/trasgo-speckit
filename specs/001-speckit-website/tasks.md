@@ -256,6 +256,21 @@ Exit command: `cd site && python3 -m http.server 8080 &` then verify with Playwr
 
 ---
 
+### Phase 11: Feature Cards Title
+**Journey**: J2 — Visitor understands the convergence loop
+
+**Entry Criteria**: Phase 10 complete
+
+**Tasks**:
+- [X] T046 Add a section heading above the 3-column feature cards in the method section: insert a `<div class="heading centered">` with an H3 or descriptive text (e.g. "The Trasgo Pipeline" or "Three Steps, Three Trasgos") between the convergence loop 2-column grid and the `<div class="grid columns-3">` character cards. Use the same heading pattern as other sections.
+      Contract: method section → heading element visible above the 3 feature cards → text describes the pipeline steps
+
+**Exit**: Use Playwright MCP to verify:
+1. A heading or title text is visible between the convergence loop diagram and the three character cards
+2. The heading is inside `#method` section
+
+---
+
 ## BDD/TDD Cycle
 
 This project uses a simplified BDD cycle without unit tests:
