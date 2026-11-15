@@ -131,15 +131,15 @@
   color-scheme: dark;
 
   /* Trasgo brand — dark palette */
-  --color-accent: #4a8c2a;
+  --color-accent: #5cb832;
   --color-background: #141410;
   --color-background-blur: #141410e6;
   --color-text-primary: #F5F3EE;
   --color-text-secondary: #F5F3EEb3;
   --color-text-tertiary: #F5F3EE6b;
-  --color-accent-hover: #5aa033;
-  --color-accent-b: #4a8c2a25;
-  --color-accent-b-hover: #4a8c2a35;
+  --color-accent-hover: #6bc83f;
+  --color-accent-b: #5cb83225;
+  --color-accent-b-hover: #5cb83235;
   --color-surface: #F5F3EE0a;
   --color-on-accent: white;
   --color-border-level-2: #F5F3EE14;
@@ -767,6 +767,12 @@ section {
   padding: 2px 4px;
   border-radius: var(--radius-xs);
   color: var(--color-text-secondary);
+}
+
+/* Character card images — blend white-bg PNGs on dark theme */
+.theme-dark .feature-card img {
+  border-radius: var(--radius-m);
+  background: #F5F3EE;
 }
 
 /* Touch target minimum */

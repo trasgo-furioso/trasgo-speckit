@@ -226,6 +226,36 @@ Exit command: `cd site && python3 -m http.server 8080 &` then verify with Playwr
 
 ---
 
+### Phase 10: Visual Refinement
+**Journey**: J1, J2 — hero branding and method section visual consistency
+
+**Entry Criteria**: Phase 9 complete
+
+**Tasks**:
+- [X] T040 Change wordmark SVG color to accent green: edit `site/images/logo.svg` — replace all `fill="#2D5016"` path fills with `fill="#4a8c2a"` (the dark-theme accent green, matching `--color-accent`). The wordmark should match the accent color used for buttons and headings.
+      Contract: logo.svg fill color → `#4a8c2a` → wordmark renders in accent green on dark background
+- [X] T041 Increase wordmark width to 200px: update the `<img>` tag in `site/index.html` nav-brand from `width="132" height="28"` to `width="200"` and remove the fixed height (let it auto-scale from aspect ratio).
+      Contract: nav-brand img width="200" → logo renders larger, maintaining aspect ratio
+- [X] T042 Recolor convergence loop SVG to match site palette: edit `site/images/convergence-loop.svg` — change the background fill to transparent (remove or set to `none`), change the "SPEC" and "DELIVER" arrow bar fills to accent green (`#4a8c2a`), change the circular loop (IMPLEMENT/TASKS/CONVERGE) fills to a lighter muted tone (`#3a5a2a` or similar), change all text fills to parchment (`#F5F3EE`). The overall look should be: green arrows on transparent background with light text.
+      Contract: convergence-loop.svg → transparent bg, accent green for linear flow, muted green for loop, parchment text
+- [X] T043 Make trasgo character images transparent background: the PNG character images already have transparent backgrounds (they were generated on white/transparent). Verify by checking the feature cards render without a visible white box around each character on the dark site background. If any have an opaque background, use `sips` or re-export to strip it.
+      Contract: trasgo-specifier.png, trasgo-designer.png, trasgo-builder.png → no visible white/opaque background on dark site
+- [X] T044 Restructure "How It Works" section to 2-column layout on desktop: replace the current `heading` + `grid > feature-card` structure with a `grid columns-1/2-1 gap-xl` layout (same as the Install CTA section). Left column: the `heading` div with H2 "How It Works" and the description paragraph. Right column: the convergence loop `<img>` as a standalone image (no feature-card wrapper). On mobile this collapses to single column automatically via the template's responsive CSS. Remove the old `<div class="grid"><div class="feature-card">` wrapper around the loop image.
+      Contract: #method section → `grid columns-1/2-1` with text left / loop image right on desktop → single column on mobile
+
+- [X] T045 Update accent green to a more vibrant tone with excellent dark-theme contrast: replace `--color-accent: #4a8c2a` in `.theme-dark` with a brighter, more saturated green (e.g. `#5cb832` or similar — target WCAG AA contrast ratio >= 4.5:1 against `#141410` background). Update `--color-accent-hover` accordingly. Also update the logo SVG fill and convergence loop SVG accent fills to match the new accent color.
+      Contract: new accent green → contrast ratio >= 4.5:1 against dark bg → buttons, links, headings, wordmark all use the updated color
+
+**Exit**: Use Playwright MCP to verify:
+1. Wordmark in nav is visible, rendered at ~200px width
+2. "How It Works" section has a 2-column layout on desktop (text left, image right)
+3. Convergence loop image is NOT inside a `.feature-card` element
+4. All three trasgo character images have no visible white background box (transparent)
+5. On mobile (375px): single column layout, no horizontal overflow
+6. Accent color on buttons has contrast ratio >= 4.5:1 against page background
+
+---
+
 ## BDD/TDD Cycle
 
 This project uses a simplified BDD cycle without unit tests:
