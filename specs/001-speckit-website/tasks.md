@@ -205,6 +205,27 @@ Exit command: `cd site && python3 -m http.server 8080 &` then verify with Playwr
 
 ---
 
+### Phase 9: Visual Polish
+**Journey**: J1, J9 — visual consistency and brand refinement
+
+**Entry Criteria**: Phase 8 complete
+
+**Tasks**:
+- [X] T038 Make favicon background transparent: edit `site/images/favicon/icon.svg` — remove or make transparent the background `<path>` element that fills the canvas with `#F5F6EE`. Regenerate PNG derivatives (32x32 `favicon.png`, 180x180 `apple-touch-icon.png`) from the updated SVG.
+      Contract: favicon SVG → no opaque background rect/path → PNG derivatives have transparent background
+- [X] T039 Switch site to dark theme: change `<html>` class from `theme-light` to `theme-dark` in `site/index.html`. Update `.theme-dark` color overrides in `site/css/index.css` to use the trasgo brand palette — dark background based on ink `#1A1A1A`, accent `#2D5016` (forest green), text `#F5F3EE` (paper), gold `#D4AF37` for hover states. Ensure the promo-cta (services) section gradient uses dark green tones. Verify form inputs and code block remain readable on dark background.
+      Contract: html class="theme-dark" → brand dark palette applied → all text readable, accent green, parchment text color
+
+**Exit**: Use Playwright MCP to verify:
+1. Favicon SVG loads and the page `<link rel="icon">` points to updated favicon
+2. `<html>` element has class `theme-dark`
+3. Page background color is dark (computed background-color luminance < 0.3)
+4. Text is light-colored (computed color luminance > 0.7)
+5. Accent elements (buttons, links) use forest green `#2D5016` or lighter variant
+6. Form inputs and code block are readable on dark background
+
+---
+
 ## BDD/TDD Cycle
 
 This project uses a simplified BDD cycle without unit tests:
