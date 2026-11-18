@@ -569,16 +569,6 @@ section {
   z-index: -10;
 }
 
-.promo-cta {
-  background-image: linear-gradient(
-    135deg,
-    var(--color-gradient-promo-start),
-    var(--color-gradient-promo-end)
-  );
-  border-radius: 16px;
-  margin-bottom: var(--space-section);
-}
-
 .image-wide {
   margin: var(--space-default) 0;
   width: 116%;
@@ -780,62 +770,3 @@ section {
   min-height: 44px;
 }
 
-/* Contact form */
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-default);
-  max-width: 480px;
-  margin: var(--space-card-m) auto 0;
-}
-
-.form-input {
-  font-family: var(--font-text);
-  font-size: var(--font-size-m);
-  line-height: var(--line-height-paragraph-m);
-  padding: 10px var(--space-button-m-horizontal);
-  min-height: 44px;
-  box-sizing: border-box;
-  border: 1px solid var(--color-border-level-3);
-  border-radius: var(--radius-s);
-  background: var(--color-background);
-  color: var(--color-text-primary);
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.form-input:focus {
-  outline: 2px solid var(--color-accent);
-  outline-offset: -1px;
-  border-color: var(--color-accent);
-}
-
-textarea.form-input {
-  resize: vertical;
-  min-height: 100px;
-}
-
-.form-confirmation {
-  margin-top: var(--space-card-m);
-}
-
-/* Promo CTA overrides for services section */
-.promo-cta .form-input {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
-  color: white;
-}
-
-.promo-cta .form-input::placeholder {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.promo-cta .form-input:focus {
-  outline-color: var(--color-accent);
-  border-color: var(--color-accent);
-}
-
-/* Promo CTA text in dark mode */
-.promo-cta .paragraph.secondary {
-  color: rgba(255, 255, 255, 0.7);
-}
