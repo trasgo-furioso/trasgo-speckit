@@ -15,5 +15,8 @@ Thumbs.db
 node_modules/
 *.log
 
+# Site (deployed via Netlify CLI)
+site/
+
 # Environment
 .env*
