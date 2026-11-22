@@ -52,6 +52,12 @@ provides:
       description: "Execute BDD/TDD phases from tasks.md — failing test first, TDD until green, exit command gate"
       replaces: "speckit.implement"
 
+    - type: "command"
+      name: "speckit.decompose"
+      file: "commands/speckit.decompose.md"
+      description: "Scan codebase and generate/update project-level docs/ with cross-referenced documentation artifacts"
+      replaces: "speckit.decompose"
+
 tags:
   - "bdd"
   - "tdd"
