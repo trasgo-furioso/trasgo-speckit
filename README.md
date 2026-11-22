@@ -23,15 +23,21 @@ specify preset list  # shows trasgospec v1.0.0 at priority 1
 ## The loop
 
 ```
-specify  -->  plan  -->  tasks  -->  implement  -->  converge
-   |            |           |            |              |
-spec.md      plan.md    tasks.md     code + tests    pass? --> done
+                        decompose
+                            |
+                          docs/  <-----------------------------+
+                            |                                  |
+specify  -->  plan  -->  tasks  -->  implement  -->  converge  |
+   |            |           |            |              |      |
+spec.md      plan.md    tasks.md     code + tests    pass? -> done
                                                       |
                                                      fail
                                                       |
                                                    tasks.md (appended)
-                                                      |
-                                                  implement  -->  converge  --> ...
+                                                      |          |
+                                                  implement  --> converge --> ...
+                                                                 |
+                                                          docs/ stale? --> decompose task
 ```
 
 The first four steps are a forward pass: define the problem, design the solution, break it into testable tasks, build it. **Converge** closes the loop. It compares the codebase against the spec, plan, and tasks, identifies gaps, and appends remaining work as new tasks to `tasks.md`. Then `implement` runs again, followed by another `converge`. The cycle repeats until converge finds nothing left to do.
@@ -50,7 +56,9 @@ Every step ends with a **human gate**. The agent produces the artifact, then the
 
 **Implement** executes phases sequentially. For each phase: write the failing BDD test (red), work through TDD tasks one by one (red-green-commit), then run the BDD test again. If the integration test passes, the phase is done. If not, debug the gap between passing unit tests and the failing integration test.
 
-**Converge** assesses the current codebase against `spec.md`, `plan.md`, and `tasks.md`. It identifies unbuilt journeys, incomplete phases, and integration gaps. Any remaining work gets appended as new tasks to `tasks.md`, and the loop continues with another `implement` pass. When converge finds nothing left -- all journeys satisfied, all exit commands passing -- the feature is done.
+**Converge** assesses the current codebase against `spec.md`, `plan.md`, and `tasks.md`. It identifies unbuilt journeys, incomplete phases, and integration gaps. Any remaining work gets appended as new tasks to `tasks.md`, and the loop continues with another `implement` pass. If `docs/` artifacts exist, converge also checks whether implementation changes made them stale -- if so, it appends a task to run `decompose` with a description of what changed. When converge finds nothing left -- all journeys satisfied, all exit commands passing -- the feature is done.
+
+**Decompose** scans the codebase and generates project-level documentation in `docs/`. It produces six interconnected artifacts: user journeys (J1, J2...), capability tree (C1, C1.1...), structural decomposition, data model (E1, E2...), interface contracts, and an AGENTS.md directive. The AGENTS.md file teaches AI assistants to consult these docs before scanning source code -- reducing token usage and response latency. Decompose is delta-aware: running it again updates only what changed (additions, removals, modifications), preserving unchanged content. It auto-detects the project's tech stack and adapts its scanning strategy and contract format accordingly. Unlike the other commands, decompose operates at the project level (`docs/`), not the feature level (`specs/`).
 
 ## Commands
 
@@ -61,6 +69,7 @@ Every step ends with a **human gate**. The agent produces the artifact, then the
 | Tasks | `/speckit-tasks` | `tasks.md` -- BDD/TDD phases with test contracts and exit commands |
 | Implement | `/speckit-implement` | Code + tests, committed phase by phase |
 | Converge | `/speckit-converge` | Gap analysis; appends remaining tasks or confirms completion |
+| Decompose | `/speckit-decompose <context>` | `docs/` -- user journeys, capability tree, structure, data model, contracts, AGENTS.md |
 
 ## Templates
 
@@ -97,7 +106,8 @@ trasgo-speckit/
 │   │   ├── speckit.specify.md
 │   │   ├── speckit.plan.md
 │   │   ├── speckit.tasks.md
-│   │   └── speckit.implement.md
+│   │   ├── speckit.implement.md
+│   │   └── speckit.decompose.md
 │   └── templates/
 │       ├── spec-template.md
 │       ├── plan-template.md
