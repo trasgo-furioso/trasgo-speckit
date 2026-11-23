@@ -1,59 +1,116 @@
-<rpg-method>
-# Repository Planning Graph (RPG) Method - Plan Template
+# Implementation Plan: [FEATURE]
 
-This template teaches you (AI or human) how to create structured, dependency-aware plans using the RPG methodology from Microsoft Research. The key insight: separate WHAT (functional) from HOW (structural), then connect them with explicit dependencies.
+**Branch**: `[###-feature-name]` | **Date**: [DATE] | **Spec**: [link]
 
-## Core Principles
+**Input**: Feature specification from `/specs/[###-feature-name]/spec.md`
 
-1. **Dual-Semantics**: Think functional (capabilities) AND structural (code organization) separately, then map them
-2. **Explicit Dependencies**: Never assume - always state what depends on what
-3. **Topological Order**: Build foundation first, then layers on top
-4. **Progressive Refinement**: Start broad, refine iteratively
+**Note**: This template is filled in by the `__SPECKIT_COMMAND_PLAN__` command; its definition describes the execution workflow.
 
-## How to Use This Template
+## Summary
 
-- Follow the instructions in each `<instruction>` block
-- Look at `<example>` blocks to see good vs bad patterns
-- Fill in the content sections with your project details
-- The AI reading this will learn the RPG method by following along
-- Extract dependency chain, development phases, and test strategy into a separate `tasks.md` using `docs/tasks-template.md`
+[Extract from feature spec: primary requirement + technical approach from research]
 
-## Recommended Tools for Creating Plans
+## Technical Context
 
-When using this template to **create** a plan (not parse it), use **code-context-aware AI assistants** for best results:
+<!--
+  ACTION REQUIRED: Replace the content in this section with the technical details
+  for the project. The structure here is presented in advisory capacity to guide
+  the iteration process.
+-->
 
-**Why?** The AI needs to understand your existing codebase to make good architectural decisions about modules, dependencies, and integration points.
+**Language/Version**: [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]
 
-**Recommended tools:**
-- **Claude Code** (claude-code CLI) - Best for structured reasoning and large contexts
-- **Cursor/Windsurf** - IDE integration with full codebase context
-- **Gemini CLI** (gemini-cli) - Massive context window for large codebases
-- **Codex/Grok CLI** - Strong code generation with context awareness
-</rpg-method>
+**Primary Dependencies**: [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION]
 
----
+**Storage**: [if applicable, e.g., PostgreSQL, CoreData, files or N/A]
 
-<overview>
-<instruction>
-Start with the problem, not the solution. Be specific about:
-- What pain point exists?
-- Who experiences it?
-- Why existing solutions don't work?
-- What success looks like (measurable outcomes)?
+**Testing**: [e.g., pytest, XCTest, cargo test or NEEDS CLARIFICATION]
 
-Keep this section focused - don't jump into implementation details yet.
-</instruction>
+**Target Platform**: [e.g., Linux server, iOS 15+, WASM or NEEDS CLARIFICATION]
 
-## Problem Statement
-[Describe the core problem. Be concrete about user pain points.]
+**Project Type**: [e.g., library/cli/web-service/mobile-app/compiler/desktop-app or NEEDS CLARIFICATION]
 
-## Target Users
-[Define personas, their workflows, and what they're trying to achieve.]
+**Performance Goals**: [domain-specific, e.g., 1000 req/s, 10k lines/sec, 60 fps or NEEDS CLARIFICATION]
 
-## Success Metrics
-[Quantifiable outcomes. Examples: "80% task completion via autopilot", "< 5% manual intervention rate"]
+**Constraints**: [domain-specific, e.g., <200ms p95, <100MB memory, offline-capable or NEEDS CLARIFICATION]
 
-</overview>
+**Scale/Scope**: [domain-specific, e.g., 10k users, 1M LOC, 50 screens or NEEDS CLARIFICATION]
+
+## Constitution Check
+
+*GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
+
+[Gates determined based on constitution file]
+
+## Project Structure
+
+### Documentation (this feature)
+
+```text
+specs/[###-feature]/
+├── plan.md              # This file (__SPECKIT_COMMAND_PLAN__ command output)
+├── research.md          # Phase 0 output (__SPECKIT_COMMAND_PLAN__ command)
+├── data-model.md        # Phase 1 output (__SPECKIT_COMMAND_PLAN__ command)
+├── quickstart.md        # Phase 1 output (__SPECKIT_COMMAND_PLAN__ command)
+├── contracts/           # Phase 1 output (__SPECKIT_COMMAND_PLAN__ command)
+└── tasks.md             # Phase 2 output (__SPECKIT_COMMAND_TASKS__ command - NOT created by __SPECKIT_COMMAND_PLAN__)
+```
+
+### Source Code (repository root)
+<!--
+  ACTION REQUIRED: Replace the placeholder tree below with the concrete layout
+  for this feature. Delete unused options and expand the chosen structure with
+  real paths (e.g., apps/admin, packages/something). The delivered plan must
+  not include Option labels.
+-->
+
+```text
+# [REMOVE IF UNUSED] Option 1: Single project (DEFAULT)
+src/
+├── models/
+├── services/
+├── cli/
+└── lib/
+
+tests/
+├── contract/
+├── integration/
+└── unit/
+
+# [REMOVE IF UNUSED] Option 2: Web application (when "frontend" + "backend" detected)
+backend/
+├── src/
+│   ├── models/
+│   ├── services/
+│   └── api/
+└── tests/
+
+frontend/
+├── src/
+│   ├── components/
+│   ├── pages/
+│   └── services/
+└── tests/
+
+# [REMOVE IF UNUSED] Option 3: Mobile + API (when "iOS/Android" detected)
+api/
+└── [same as backend above]
+
+ios/ or android/
+└── [platform-specific structure: feature modules, UI flows, platform tests]
+```
+
+**Structure Decision**: [Document the selected structure and reference the real
+directories captured above]
+
+## Complexity Tracking
+
+> **Fill ONLY if Constitution Check has violations that must be justified**
+
+| Violation | Why Needed | Simpler Alternative Rejected Because |
+|-----------|------------|-------------------------------------|
+| [e.g., 4th project] | [current need] | [why 3 projects insufficient] |
+| [e.g., Repository pattern] | [specific problem] | [why direct DB access insufficient] |
 
 ---
 
@@ -250,68 +307,3 @@ project-root/
   - `ClassName` - [what it does]
 
 </structural-decomposition>
-
----
-
-<architecture>
-<instruction>
-Describe technical architecture, data models, and key design decisions.
-
-Keep this section AFTER functional/structural decomposition - implementation details come after understanding structure.
-</instruction>
-
-## System Components
-[Major architectural pieces and their responsibilities]
-
-## Data Models
-[Core data structures, schemas, database design]
-
-## Technology Stack
-[Languages, frameworks, key libraries]
-
-**Decision: [Technology/Pattern]**
-- **Rationale**: [Why chosen]
-- **Trade-offs**: [What we're giving up]
-- **Alternatives considered**: [What else we looked at]
-
-</architecture>
-
----
-
-<risks>
-<instruction>
-Identify risks that could derail development and how to mitigate them.
-
-Categories:
-- Technical risks (complexity, unknowns)
-- Dependency risks (blocking issues)
-- Scope risks (creep, underestimation)
-</instruction>
-
-## Technical Risks
-**Risk**: [Description]
-- **Impact**: [High/Medium/Low - effect on project]
-- **Likelihood**: [High/Medium/Low]
-- **Mitigation**: [How to address]
-- **Fallback**: [Plan B if mitigation fails]
-
-## Dependency Risks
-[External dependencies, blocking issues]
-
-## Scope Risks
-[Scope creep, underestimation, unclear requirements]
-
-</risks>
-
----
-
-<appendix>
-## References
-[Papers, documentation, similar systems]
-
-## Glossary
-[Domain-specific terms]
-
-## Open Questions
-[Things to resolve during development]
-</appendix>

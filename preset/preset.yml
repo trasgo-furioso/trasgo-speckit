@@ -35,12 +35,6 @@ provides:
       replaces: "speckit.specify"
 
     - type: "command"
-      name: "speckit.plan"
-      file: "commands/speckit.plan.md"
-      description: "Create plan.md with capability tree, journey contracts, and architecture"
-      replaces: "speckit.plan"
-
-    - type: "command"
       name: "speckit.tasks"
       file: "commands/speckit.tasks.md"
       description: "Create tasks.md with BDD/TDD phases driven by journey contracts"
